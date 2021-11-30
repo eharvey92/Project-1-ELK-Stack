@@ -63,13 +63,13 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it alleviates the need to manually update or configure each virtual machine since any modifications to the ansible playbook will automatically apply to all linked machines. Aside from saving time this also reduces the margin for errors which could occur if multiple changes had to be made across multiple virtual machines.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Installing Docker
+- Installing Python3-pip
+- Increasing virtual memory
+- Downloads and installs ELK docker container running on ports 5601, 9200 and 5044
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
