@@ -23,11 +23,14 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+The presence of a load balancer in this setup adds elasticity to the network by controlling the distribution of traffic evenly and adding a layer of redundancy in the instance that one server is compromised or becomes unavailable (as traffic would be redirected to the available server).
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+The advantage of using a Jump Box Provisioner is that it serves as a single heavily secured access point with the purpose of monitoring and logging and masks our virtual machines from being exposed to the public.
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system metrics.
+
+- Filebeat collects, stores and organises log data efficiently, e.g. if an attacker attempts to modify the /etc/passwd file
+- Metricbeat compiles data relating to system machine metrics, e.g. CPU
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -83,8 +86,8 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat gathers log files from processes, e.g. SSH login attempts.
-- Metricbeat gathers machine metrics from system data such as memory usage and uptime.
+- Filebeat gathers log files from processes, in this instance an example would be failed or successful SSH login attempts.
+- Metricbeat gathers machine metrics from system data such as memory usage and uptime which is helpful in determining suspicious activity.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
